@@ -16,27 +16,40 @@
 
 <body>
 
-<table>
-    <tr>
-        <th>Question</th>
-        <th>Answer</th>
-        <th>Correct?</th>
-    </tr>
-    <tr>
-        <td>What is the capital of Burundi?</td>
-        <td>Bujumburra</td>
-        <td>Yes</td>
-    </tr>
-    <tr>
-        <td>What is the capital of France?</td>
-        <td>F</td>
-        <td>Erm... sort of</td>
-    </tr>
-</table>
+<h2>Inline</h2>
+	<p id="example2"><span>This</span><span class="altern8">That</span><span>The Other</span><span class="altern8">4</span></p>
+
+	<h2> Inline</h2>
+	<div class="level1">Level1 </div><div class="level2">Level2 </div><div class="level3">Level3 </div>
 	
 </body>
 
 <style type="text/css">
 
+span {
+	margin-top: 70px;
+	border: solid 1px;
+	padding-top: 50px;
+	display: inline-block;
+}
+ p {
+ 	border: solid 1px;
+ }
+
+ h2 {
+ 	border: solid 1px;
+ }
+
+ .level1, .level2, .level3 {
+ 	display: inline;
+ 	border: solid 1px;
+ }
+
+ .level2 {
+ 	margin-top: 40px;
+ 	margin-left: 20px;
+ 	padding-bottom: 10px;
+ 	padding-top: 50px;
+ }
 </style>
 </html>
