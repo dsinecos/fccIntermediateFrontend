@@ -16,21 +16,43 @@
 
 <body>
 
+	<div class="box-left">
+		<p> I feel like I'm floating on left</p>
+	</div>
+
 	
 
-	<section class="large">
-	<div class="box">
-		<p> I feel like I'm floating </p>
+	<div class="large">
+
+		<p> Top In this case, the section element is actually after the div. However, since the div is floated to the left, this is what happens: the text in the section is floated around the div and the section surrounds the whole thing. What if we wanted the section to actually appear after the floated element? </p>
 	</div>
-		<p> In this case, the section element is actually after the div. However, since the div is floated to the left, this is what happens: the text in the section is floated around the div and the section surrounds the whole thing. What if we wanted the section to actually appear after the floated element? </p>
-	</section>
+
+	<div class="box-right">
+		<p> I feel like I'm floating on right </p>		
+	</div>
+
+	<div class="largesse">
+		<p> Bottom In this case, the section element is actually after the div. However, since the div is floated to the left, this is what happens: the text in the section is floated around the div and the section surrounds the whole thing. What if we wanted the section to actually appear after the floated element? Bottom In this case, the section element is actually after the div. However, since the div is floated to the left, this is what happens: the text in the section is floated around the div and the section surrounds the whole thing. What if we wanted the section to actually appear after the floated element?Bottom In this case, the section element is actually after the div. However, since the div is floated to the left, this is what happens: the text in the section is floated around the div and the section surrounds the whole thing. What if we wanted the section to actually appear after the floated element?Bottom In this case, the section element is actually after the div. However, since the div is floated to the left, this is what happens: the text in the section is floated around the div and the section surrounds the whole thing. What if we wanted the section to actually appear after the floated element?Bottom In this case, the section element is actually after the div. However, since the div is floated to the left, this is what happens: the text in the section is floated around the div and the section surrounds the whole thing. What if we wanted the section to actually appear after the floated element?</p>
+		
+	</div>
+
+	
 	
 </body>
 
 <style type="text/css">
 
-	.box {
+	.box-left {
 		float: left;
+		width: 200px;
+		height: 100px;
+		margin: 1em;
+		border: solid 1px;
+		background-color: blue;
+	}
+
+	.box-right {
+		float: right;
 		width: 200px;
 		height: 100px;
 		margin: 1em;
@@ -41,7 +63,13 @@
 	.large {
 		border: solid 1px;
 		background-color: #666;
-		width: 200px;
+		/*clear: left;*/
+	}
+
+	.largesse {
+		border: solid 1px;
+		background-color: #666;
+		clear: left;
 	}
 
 </style>
