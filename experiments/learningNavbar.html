@@ -38,7 +38,7 @@
 
 
 .topRibbonSpace {
-	margin: 80px auto;
+	margin: 5px auto;
 	width: 80%;
 
 }
@@ -53,13 +53,13 @@
 ul {
 	list-style-type: none;
 	border: solid 1px;
-	/*overflow: hidden;*/
-	position: fixed;
-	top: 8px;
-	right: 5%;
+	overflow: hidden;
+	/*position: fixed;*/
+	/*top: 8px;*/
+	/*right: 5%;*/
 	padding-left: 5px;
 	width: 90%;
-	/*margin: 2px 5%;	*/
+	margin: 8px 5%;	
 }
 
 li {
@@ -72,6 +72,12 @@ li a {
 	padding: 5px;
 	background-color: #999;
 	color: powderblue;
+}
+
+@media screen and (max-width: 600px){
+    li {
+    	float: none;
+    }
 }
 
 </style>
