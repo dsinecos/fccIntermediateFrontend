@@ -15,31 +15,60 @@
 
 
 <body>
+
+<!-- <div class="testingOverflow"> -->
 <ul>
 	<li><a href="#">Home</a></li>
 	<li><a href="#">Portfolio</a></li>
 	<li><a href="#">About</a></li>
 	<li><a href="#">Contact</a></li>
 </ul>
+<!-- </div> -->
+
+<div class="topRibbonSpace">
+
+<h2> Experimenting with nav</h2>
+<p> A quick brown fox jumps over the lazy dog A quick brown fox jumps over the lazy dog A quick brown fox jumps over the lazy dog A quick bbarsrown fox jumps over the lazy dog A quick brown fox jumps over the lazy dog A quick brown fox jumps over the lazy dog A quick brown fox jumps over the lazy dog A quick brown fox jumps over the lazy dog </p>
+
+</div>
+
 </body>
 
 <style type="text/css">
 
+
+.topRibbonSpace {
+	margin: 80px auto;
+	width: 80%;
+
+}
+
+/*
+.testingOverflow {
+	width: 600px;
+	border: solid 1px;
+}
+*/
+
 ul {
-	margin: 10px;
-	padding: 0;
 	list-style-type: none;
-	background-color: #ccc;
-	overflow: hidden;
+	border: solid 1px;
+	/*overflow: hidden;*/
+	position: fixed;
+	top: 8px;
+	right: 5%;
+	padding-left: 5px;
+	width: 90%;
+	/*margin: 2px 5%;	*/
 }
 
 li {
-	float: right;
+	float: left;
 }
 
 li a {
 	display: block;
-	margin: 12px;
+	margin: 5px;
 	padding: 5px;
 	background-color: #999;
 	color: powderblue;
