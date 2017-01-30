@@ -21,7 +21,7 @@
 	<div class="quoteBox">
 		<div class="quoteBox2">
 
-			<blockquote> This is a quote. This is a quote. This is a quote. This is a quote <i class="fa fa-quote-right"></i> <footer class="author"> author </footer></blockquote>
+			<blockquote> This is a quote. This is a quote. This is a quote. This is a quote &nbsp;&nbsp;<i class="fa fa-quote-right"></i><footer class="author"> author </footer></blockquote>
 
 			<button class="btn btn-default tweet" href="#"><i class="fa fa-twitter"></i></button>
 			<button class="btn btn-default nextQuote" href="#">New Quote</button>
@@ -57,7 +57,7 @@
 
 	.quoteBox2 {
 		background-color: #ddd;
-		border: solid 2px;
+		/*border: solid 2px;*/
 		border-radius: 5px;
 
 		overflow: hidden;
@@ -93,5 +93,128 @@
 	}
 
 </style>
+
+<script type="text/javascript">
+
+	var quoteData = [{
+		quote: "I'll make them an offer they can't refuse",
+		author: "Michael Corleone",
+		color: "brown"
+	}, {
+		quote: "You were right warden, salvation lies within",
+		author: "Andy Dufresne",
+		color: "red"
+	}, {
+		quote: "Let's not blow this out of proportion",
+		author: "Joker",
+		color: "blue"
+	}];
+
+	function newQuote(){
+
+		// console.log("Entered function newQuote");
+
+		for (var i in quoteData) {
+
+			/*
+			console.log("Entered for loop");
+
+			console.log("ith author" + quoteData[i]['author']);
+			console.log("current author" + $('footer').html());
+			// console.log(typeof quoteData[i]['author']);
+			// console.log(typeof $('footer').html());
+			console.log(quoteData[i]['author'] == $('footer').html());
+			console.log(quoteData[i]['author'] === $('footer').html());
+			*/
+
+			if (quoteData[i]['author'] == $('footer').html()) {
+				// console.log($('footer').html());
+
+				/*
+				console.log("Entered first if");
+				console.log("before var");
+				*/
+
+				var x = parseInt(i) + 1;
+
+				/*
+				console.log("after var");
+				console.log("x " + x);
+				console.log(x >= quoteData.length);
+				console.log("length " + quoteData.length);
+				*/
+
+				if (x < quoteData.length) {
+
+					/*
+					console.log("Entered second if");
+					console.log("x " + x);
+					*/
+
+					changeContent(x);
+					changeColor(quoteData[x]['color']);
+					
+					return;
+
+				} else {
+
+					changeContent(0);
+					changeColor(quoteData[0]['color']);
+					
+					return;
+
+				}
+			} else {
+
+				/*
+				console.log("Exiting first if loop");
+				console.log("End of click session");
+				*/
+			}
+		}
+
+		changeContent(0);
+		changeColor(quoteData[0]['color']);
+		
+		return;
+
+
+	}
+
+	function changeColor(color){
+
+		$('body').css('background-color', color);
+		$('.quoteBox p').css('color', 'white');
+
+		$('.btn').css('background-color', color);
+		$('.btn').css('color', 'white');
+
+		$('blockquote').css('color', color);
+		$('footer').css('color', color);
+		
+	}
+
+	function changeContent(index){
+		
+		$('blockquote').html(quoteData[index]['quote'] + '&nbsp;&nbsp;<i class="fa fa-quote-right"></i>' + '<footer> </footer>');
+		$('footer').html(quoteData[index]['author']);
+
+		$('footer').addClass('author');
+
+	}
+
+	function tweetQuote() {
+		window.open('https://twitter.com/intent/tweet' + "?text=" + $('blockquote').html());
+	}
+
+	$(document).ready(function(){
+
+		$('.quoteBox2').on('click', '.nextQuote', newQuote);
+		$('.quoteBox2').on('click', '.tweet', tweetQuote);
+
+		// $('.nextQuote').click(newQuote);
+	});
+
+</script>
 
 </html>
