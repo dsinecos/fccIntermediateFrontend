@@ -21,7 +21,7 @@
 	<div class="quoteBox">
 		<div class="quoteBox2">
 
-			<blockquote> This is a quote. This is a quote. This is a quote. This is a quote &nbsp;&nbsp;<i class="fa fa-quote-right"></i><footer class="author"> author </footer></blockquote>
+			<blockquote><p><span class="textQuote">This is a quote. This is a quote. This is a quote. This is a quote</span>&nbsp;&nbsp;<i class="fa fa-quote-right"></i></p><footer class="author"> author </footer></blockquote>
 
 			<button class="btn btn-default tweet" href="#"><i class="fa fa-twitter"></i></button>
 			<button class="btn btn-default nextQuote" href="#">New Quote</button>
@@ -105,7 +105,7 @@
 		author: "Andy Dufresne",
 		color: "red"
 	}, {
-		quote: "Let's not blow this out of proportion",
+		quote: "Why don't I cut you into pieces and feed you to your pooches, and then we'll see how loyal a hungry dog really is",
 		author: "Joker",
 		color: "blue"
 	}];
@@ -127,8 +127,10 @@
 			console.log(quoteData[i]['author'] === $('footer').html());
 			*/
 
-			if (quoteData[i]['author'] == $('footer').html()) {
+			if (quoteData[i]['author'] == $('blockquote footer').text()) {
 				// console.log($('footer').html());
+
+
 
 				/*
 				console.log("Entered first if");
@@ -176,9 +178,8 @@
 		changeContent(0);
 		changeColor(quoteData[0]['color']);
 		
+		
 		return;
-
-
 	}
 
 	function changeColor(color){
@@ -189,22 +190,27 @@
 		$('.btn').css('background-color', color);
 		$('.btn').css('color', 'white');
 
-		$('blockquote').css('color', color);
-		$('footer').css('color', color);
-		
+		$('.textQuote').css('color', color);
+		$('.fa-quote-right').css('color', color);
+		$('footer').css('color', color);		
 	}
 
 	function changeContent(index){
 		
-		$('blockquote').html(quoteData[index]['quote'] + '&nbsp;&nbsp;<i class="fa fa-quote-right"></i>' + '<footer> </footer>');
-		$('footer').html(quoteData[index]['author']);
+		$('.textQuote').text(quoteData[index]['quote']);
 
-		$('footer').addClass('author');
+		// $('blockquote p').append('&nbsp;&nbsp;<i class="fa fa-quote-right"></i>');
+
+		// $('blockquote').append('<footer> </footer>');
+
+		$('blockquote footer').html(quoteData[index]['author']);
+
+		$('blockquote footer').addClass('author');
 
 	}
 
 	function tweetQuote() {
-		window.open('https://twitter.com/intent/tweet' + "?text=" + $('blockquote').html());
+		window.open('https://twitter.com/intent/tweet' + "?text=" + $('blockquote p').text());
 	}
 
 	$(document).ready(function(){
