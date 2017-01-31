@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Learning Bootstrap</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+	<div class="location">
+		<h1>Here we'll have the location</h1>
+	</div>
+
+	<div class="weather">
+		<h1>Here we'll have the weather</h1>
+	</div>	
+
+</body>
+
+<style type="text/css">
+	
+</style>
+
+<script type="text/javascript">
+
+
+	$(document).ready(function gettingJSON() {
+		/*
+		$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=London&APPID=71323636795d62e17fc6101b104d40f0", function(json){
+			
+			$(".weather h1").text(json);
+			console.log(json);
+
+		});
+		*/
+		var $latitude;
+		var $longitude;
+
+		console.log("Entered script ");
+
+		if (navigator.geolocation) {
+			console.log("Entered if ");
+
+			navigator.geolocation.getCurrentPosition(function(position){
+
+				console.log("Entered geolocation function ");
+
+				$(".location").text("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
+				$latitude = position.coords.latitude;
+				$longitude = position.coords.longitude;
+
+				console.log("Geolocation working ");
+				console.log($latitude);
+				console.log($longitude);
+
+				console.log("Latitude :" + $latitude);
+				console.log("Longitude :" + $longitude);
+
+				$.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + $latitude + "&lon=" + $longitude + "&APPID=71323636795d62e17fc6101b104d40f0", function(json){
+
+					$(".weather h1").text(json);
+					console.log(json);
+
+				});
+			});
+		} 
+
+		
+	});
+	
+</script>
+
+</html>
