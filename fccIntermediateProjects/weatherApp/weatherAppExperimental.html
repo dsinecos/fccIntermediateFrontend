@@ -25,6 +25,7 @@
 
 	<div class="weather">
 		<h1>Here we'll have the weather</h1>
+		<h2> Whatssup </h2>
 	</div>	
 
 </body>
@@ -48,30 +49,50 @@
 		var $latitude;
 		var $longitude;
 
-		console.log("Entered script ");
+		//console.log("Entered script ");
 
 		if (navigator.geolocation) {
-			console.log("Entered if ");
+			//console.log("Entered if ");
 
 			navigator.geolocation.getCurrentPosition(function(position){
 
-				console.log("Entered geolocation function ");
+				//console.log("Entered geolocation function ");
 
 				$(".location").text("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
 				$latitude = position.coords.latitude;
 				$longitude = position.coords.longitude;
 
+				$.getJSON('https://geoip-db.com/json/geoip.php?jsonp=?') 
+				.done (function(location)
+				{
+					console.log(location.country_name);
+					console.log(location.state);
+					console.log(location.city);					
+					console.log(location.IPv4);               
+				});
+
+				/*
 				console.log("Geolocation working ");
 				console.log($latitude);
 				console.log($longitude);
 
 				console.log("Latitude :" + $latitude);
 				console.log("Longitude :" + $longitude);
+				*/
 
 				$.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + $latitude + "&lon=" + $longitude + "&APPID=71323636795d62e17fc6101b104d40f0", function(json){
 
-					$(".weather h1").text(json);
+					// $(".weather h1").html(JSON.stringify(json));
 					console.log(json);
+
+					$.each(json, function(i, field){
+						$(".weather h1").append(i + " " + JSON.stringify(field) + " ");
+						// $(".weather h1").append(i + " | " + field + " @$@ ");
+						// $(".weather h1").append(i.main + " | ");
+					});
+					
+					$(".weather h2").append(json.wind.speed + " is the wind speed");
+					//console.log(json);
 
 				});
 			});
