@@ -4,7 +4,7 @@ var person = {
 	address: "This is the object address",
 
 	getAddress: function(){
-		console.log(address);
+		console.log(this.address);
 		return;
 	}
 
@@ -12,3 +12,6 @@ var person = {
 
 address = 'This is the global address';
 console.log(person.getAddress());
+
+var test = person.getAddress;
+console.log(test());
