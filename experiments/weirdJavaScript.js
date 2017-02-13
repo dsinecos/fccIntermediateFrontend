@@ -1,19 +1,14 @@
-function test1() {
-	console.log(testVariable2);
-}
+var person = {
+	firstName: "John",
+	lastName: "Doe",
+	address: "This is the object address",
 
-function test2() {
-	testVariable = 'Inside function test2'
-	console.log(testVariable);
-
-	function test3() {
-		console.log(testVariable2);
+	getAddress: function(){
+		console.log(address);
+		return;
 	}
 
-	test3();
-}
+};
 
-testVariable2 = 'Global Object';
-
-test1();
-test2();
+address = 'This is the global address';
+console.log(person.getAddress());
