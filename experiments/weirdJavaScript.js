@@ -8,7 +8,10 @@
 	function testD() {
 
 		return function test1() {
-			console.log("Let's see if this works " + name);
+
+			return function test2() {
+				console.log("Does this work inside nested level 2" + name);
+			}
 		}
 
 	}
@@ -18,7 +21,9 @@
 
 var demo = test();
 
-demo();
+var demo2 = demo();
+
+demo2();
 
 
 
