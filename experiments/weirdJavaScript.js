@@ -1,25 +1,14 @@
-(function() {
+function test() {
 
-	var name = 'default';
-	// var gObject = this;
+	console.log("What is the value of this " + this);
 
-	test = testD;
-
-	function testD() {
-
-		return {
-			getName: function() {
-				console.log("Will this work " + name);
-			}
-		}
-
-	}
-
-})()
+}
 
 
-var demo = test();
+function test2(callback) {
 
-demo.getName();
+	callback();
+}
 
 
+test2(test);
