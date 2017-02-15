@@ -1,17 +1,24 @@
-var person = {
-	firstName: "John",
-	lastName: "Doe",
-	address: "This is the object address",
+(function() {
 
-	getAddress: function(){
-		console.log(this.address);
-		return;
+	var name = 'default';
+	var gObject = this;
+
+	gObject.test = testD;
+
+	function testD() {
+
+		return function test1() {
+			console.log("Let's see if this works " + name);
+		}
+
 	}
 
-};
+})()
 
-address = 'This is the global address';
-console.log(person.getAddress());
 
-var test = person.getAddress;
-console.log(test());
+var demo = test();
+
+demo();
+
+
+
