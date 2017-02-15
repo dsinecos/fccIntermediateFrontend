@@ -1,16 +1,15 @@
 (function() {
 
 	var name = 'default';
-	var gObject = this;
+	// var gObject = this;
 
-	gObject.test = testD;
+	test = testD;
 
 	function testD() {
 
-		return function test1() {
-
-			return function test2() {
-				console.log("Does this work inside nested level 2" + name);
+		return {
+			getName: function() {
+				console.log("Will this work " + name);
 			}
 		}
 
@@ -21,9 +20,6 @@
 
 var demo = test();
 
-var demo2 = demo();
-
-demo2();
-
+demo.getName();
 
 
