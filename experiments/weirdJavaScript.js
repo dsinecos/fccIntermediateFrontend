@@ -1,14 +1,20 @@
-function test() {
-
-	console.log("What is the value of this " + this);
-
+var person = function() {
+	this.name = 'name';
+	this.lastname = 'lastname';
+	this.fullname = 'fullname';
 }
 
+var demo = new person();
 
-function test2(callback) {
+person.prototype.test = function() {
 
-	callback();
+	var self = this;
+
+	function withinTest() {
+
+		console.log(self.name);
+		console.log(self.lastname);
+	}
 }
 
-
-test2(test);
+demo.withinTest();
