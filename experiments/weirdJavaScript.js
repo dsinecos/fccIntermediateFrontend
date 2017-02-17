@@ -1,13 +1,16 @@
-var demo = function test() {
+function person() {
 
-	var name = 'name';
+	name = 'name';
+	fullname = 'fullname';
+	getname = function(){};
 
-	console.log('Hoye');
-
-	return demo;
 }
 
-var demo2 = demo();
+console.log(typeof person.prototype);
+console.log(person.prototype);
 
-console.log(demo2);
-console.log(demo2.__proto__)
+var demo = Object.create(person.prototype);
+
+console.log(demo);
+
+// console.log(person.prototype.name);
